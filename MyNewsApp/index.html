@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>My news App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/newsApp.css">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="navbar navbar-inverse" style="margin-bottom: 0">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">New York Times Explorer</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li style="color:white">
+                <div id="searcharea" style="margin-right: 2px; padding:10px 0px 5px 0px;">
+                <label for="search">Search</label>
+                <input class="search-bar" type="input" name="search" id ="search" placeholder="Search article in NYTimes" />&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;
+                </div></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="padding: 15px;">
+                <li><span class="glyphicon glyphicon-map-marker" id="location_tracker" onclick="toggle_location(this)" style="color:white"></span>&nbsp;&nbsp;</li>
+                <li style="color: white"><label for="city" style="color: white" >City:&nbsp;</label><label id="city"></label></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 col-md-push-3 col-sm-push-3" style="margin: 0; padding: 0">
+        <div class="row" id="searchResults-div" style="display: none">
+            <div class="table-responsive" id="searchresults">
+                <table id="searchResults" class="table-responsive" style="margin:0;padding: 0" >
+                </table>
+            </div>
+        </div>
+        <div class="row text-center">
+            <h2>Trending Now</h2>
+            <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+              <!-- Indicators -->
+                <ol class="carousel-indicators" id="trending-div">
+                </ol>
+          
+              <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox" id="trending-div-data">
+                    
+                </div>
+          
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-12 col-md-pull-6 col-sm-pull-6" style="margin: 0; padding: 0">
+    
+    <!--<div id="update" style="margin-top: 5%;margin-left: 2%;"></div>-->
+    
+    <div class="panel panel-default" style="border:0; margin: 0px;" name="NewsFeedContainer">
+            <div class="panel-heading" style="color:white;background-color: rgb(0, 102, 158);padding: 8px;" id="newsPanelHeading">
+               <!-- <select id="newsfilter" onchange="filternews(this.id)" multiple="multiple">
+                    <option value="world">World</option>
+                    <option value="world">Business</option>
+                    <option value="arts">Arts</option>
+               </select>-->
+                     <b> Recent News :</b>
+                    <select id="newsfilter" multiple="multiple" class="well">
+                        <option value="all" selected="selected">All</option>
+                        <option value="world">World</option>
+                        <option value="business">Business</option>
+                        <option value="arts">Arts</option>
+                        <option value="tech">Tech</option>
+                        <option value="sports">Sports</option>
+                        <option value="science">Science</option>
+                        <option value="health">Health</option>
+                    </select>
+                    <button class="btn btn-default" onclick="filternews();"> Filter </button>
+            </div>
+            <div id="news-table-div" class="table-responsive" style="overflow-y: scroll; height: 100vh;">
+            <table id="NewsFeed" class="table-responsive" style="margin:0;padding: 0" >
+            </table>
+            </div>
+       </div>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-12" style="margin: 0; padding: 0">
+        
+        <div class="panel panel-default" style="border:0;margin: 0; padding: 0" name="NewsFeedContainer">
+            <div class="panel-heading" style="">What's in the Movies</div>
+            <div id="movies-table-div" class="table-responsive" style="overflow-y: scroll; height: 100vh;">
+            <table id="MovieReviews" class="table-responsive" >
+            </table>
+            </div>
+       </div>
+    </div>
+</div>
+<script type="text/javascript" src="./js/bootsrap-multiselect.js"></script>
+<script type="text/javascript" src="./js/newsapp.js"></script>
+</body>
+</html>
